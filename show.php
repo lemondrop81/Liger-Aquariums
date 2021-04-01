@@ -36,6 +36,13 @@
         <?php foreach(array_reverse($fish) as $curent): ?>
             <div class = "fish_post">
                 <h2><?= $curent['commonName'] ?> </h2>
+
+                <?php if($curent['image']): ?>
+
+                    <img src="data:image/gif;base64,<?php echo base64_encode($curent['image']);?>" /> <br>
+
+                <?php endif ?>
+
                 <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 'a'): ?>
                     <p>
                         Date: <?=  $curent['date'] ?> <a href="edit.php?id=<?=$curent['fish_id'] ?>">edit </a> <br>

@@ -33,7 +33,18 @@ var_dump($image_upload_detected);
 
         if (file_is_an_image($temporary_image_path, $image_filename)) { 
 
+            list($width, $height) = getimagesize($temporary_image_path);
+
+            $maxWidth = 150;
+            $maxHeight = 150;
+
+            $thumb = imagecreatetruecolor($maxWidth, $maxHeight);
+            $source = imagecreatefromjpeg($temporary_image_path);
+
+            imagecopyresized($thumb, $source, 0, 0, 0, 0, $maxWidth, $maxHeight, $width, $height);
+
             $imageContent = addslashes(file_get_contents($temporary_image_path));
+
 
         }
     }
@@ -54,7 +65,7 @@ var_dump($image_upload_detected);
 
 if(strlen($commonName) == 0  || strlen($aggression) == 0 || strlen($tankmates) == 0 || strlen($size) == 0 || strlen($ph) == 0 ||  strlen($waterTemperature) == 0 || strlen($user_name) == 0 || strlen($swimPosition) == 0)
 {
-
+    header("Location: homepage.php");
 }
 else
 {
@@ -63,6 +74,6 @@ else
     $statement = $db->prepare($query);
     $statement->execute();
 
-
+    header("Location: homepage.php");
 }
 ?>

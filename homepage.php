@@ -29,8 +29,16 @@
             <?php $i = 0 ?>
             
             <?php foreach(array_reverse($fish) as $curent): ?>
-                <div class = "fish_post">
+                <div class = "fish_post">           
+
                     <h2><?= $curent['commonName'] ?> </h2>
+
+                    <?php if($curent['image']): ?>
+
+                        <img src="data:image/gif;base64,<?php echo base64_encode($curent['image']);?>" /> <br>
+
+                    <?php endif ?>
+                    
                     <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 'a'): ?>
                         <p>
                             Date: <?=  $curent['date'] ?> <a href="edit.php?id=<?=$curent['fish_id'] ?>">edit </a> <br>
@@ -40,14 +48,13 @@
                     <?php endif ?>
 
                         <div class = "fish_content">
+
                             Tank Mates: <?= $curent['Tankmates'] ?> <br>
                             Aggression level: <?= $curent['Aggression'] ?> <br>
                             Full grown size: <?= $curent['Size'] ?>" <br>
                             pH: <?= $curent['pH'] ?> <br>
                             Water temperature: <?= $curent['Water_Temperature'] ?> F <br>
                             Swim position: <?= $curent['swimPosition'] ?> <br>
-
-                            <img src="data:image/gif;base64,<?php echo base64_encode($curent['image']);?>" /> <br>
 
                             <a href="show.php?id=<?=$curent['fish_id'] ?>">Read More </a>
 

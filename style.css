@@ -86,6 +86,13 @@ div.fish_content {
     font-family: Calibri, sans-serif;
 }
 
+div.fish_post img{
+    vertical-align:middle;
+    float:right;
+    height: 170px;
+    width: 170px;
+}
+
 div#footer {
     text-align: right;
     margin-top: 10px;
