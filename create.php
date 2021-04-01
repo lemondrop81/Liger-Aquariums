@@ -37,7 +37,7 @@
         <?php require 'menu.php' ?>
 
 <div id="all_blogs">
-  <form action="insert.php" method="post">
+  <form action="insert.php" method="post" enctype="multipart/form-data">
     <fieldset>
       <legend>Add new fish</legend>
       <p>
@@ -87,8 +87,12 @@
         <input name="waterTemperature" id="waterTemperature" />
       </p>
       <p>
-        <label for="userId">User Id</label>
-        <input name="userId" id="userId" />
+        <label for="user_name">User Name: <?= $_SESSION['username'] ?></label>
+        <input type="hidden" name="user_name" id="user_name" value="<?= $_SESSION['username'] ?>"/>
+      </p>
+      <p>
+        <label for="image">Image Filename:</label>
+        <input type="file" name="image" id="image">
       </p>
       <p>
         <input type="submit" name="command" value="Create" />

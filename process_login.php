@@ -21,8 +21,6 @@
         
     }
 
-    var_dump($_SESSION['role']);
-
     header("Location: homepage.php");
 
 ?>

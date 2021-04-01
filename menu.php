@@ -1,26 +1,18 @@
-
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Liger Aquariums</title>
-    <link rel="stylesheet" href="style.css" type="text/css">
-</head>
-<body>
-    <ul id="menu">
+<ul id="menu">
         <li><a href="homepage.php">Home</a></li>
-        <li><a href="create.php" >New Post</a></li>
+        <?php if(isset($_SESSION['role'])): ?>
+            <li><a href="create.php" >New Post</a></li>
+        <?php endif ?>
         <li><a href="categories.php" >Categories</a></li>
     
         <?php if(isset($_SESSION['username'])): ?>
+            <?php if($_SESSION['role'] == 'a'): ?>
+                <li><a href="createNewCategories.php"> New Categories </a></li>
+            <?php endif ?>
             <li><a href="logout.php">Log out</a></li>
             <li> <?= $_SESSION['username']?> </li>
         <?php else: ?>
             <li><a href="registration.php">Register</a></li>
             <li><a href="login.php">Log in</a></li>
         <?php endif ?>
-            
-    
-    </ul> <!-- END div id="menu" -->
-</body>
-</html>
+</ul> <!-- END div id="menu" -->

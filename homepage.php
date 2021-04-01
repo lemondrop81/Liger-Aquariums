@@ -7,7 +7,7 @@
     $fish= $statement->fetchAll();
 
     session_start();
-
+   
 ?>
 
 <!DOCTYPE html>
@@ -23,17 +23,21 @@
             <h1><a href="homepage.php">Liger Aquariums - Home page</a></h1>
         </div> <!-- END div id="header" -->
         
-<?php require 'menu.php' ?>
+<?php require 'menu.php' ?> 
 
 <div id="all_blogs">
             <?php $i = 0 ?>
             
             <?php foreach(array_reverse($fish) as $curent): ?>
                 <div class = "fish_post">
-                    <h2><?= $curent['commonName'] ?></a> </h2>
-                    <p>
-                        Date: <?=  $curent['date'] ?> <a href="edit.php?id=<?=$curent['fish_id'] ?>">edit </a> <br>
-                    </p>
+                    <h2><?= $curent['commonName'] ?> </h2>
+                    <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 'a'): ?>
+                        <p>
+                            Date: <?=  $curent['date'] ?> <a href="edit.php?id=<?=$curent['fish_id'] ?>">edit </a> <br>
+                        </p>
+                    <?php else: ?>
+                            Date: <?= $curent['date'] ?>
+                    <?php endif ?>
 
                         <div class = "fish_content">
                             Tank Mates: <?= $curent['Tankmates'] ?> <br>
@@ -42,6 +46,11 @@
                             pH: <?= $curent['pH'] ?> <br>
                             Water temperature: <?= $curent['Water_Temperature'] ?> F <br>
                             Swim position: <?= $curent['swimPosition'] ?> <br>
+
+                            <img src="data:image/gif;base64,<?php echo base64_encode($curent['image']);?>" /> <br>
+
+                            <a href="show.php?id=<?=$curent['fish_id'] ?>">Read More </a>
+
                         </div>
                 </div>
                 

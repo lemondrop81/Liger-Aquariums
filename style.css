@@ -1,7 +1,7 @@
 /****************
     
     Final Project
-    Name: Leum Fraser
+    Name: Leum 
     Date: March 17, 2021
     Description:
 
@@ -90,4 +90,10 @@ div#footer {
     text-align: right;
     margin-top: 10px;
     
+}
+
+div#comments{
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(24, 24, 24);
+    background-color: greenyellow;
 }
