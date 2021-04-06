@@ -8,6 +8,7 @@
         <?php if(isset($_SESSION['username'])): ?>
             <?php if($_SESSION['role'] == 'a'): ?>
                 <li><a href="createNewCategories.php"> New Categories </a></li>
+                <li><a href="users.php">Users </a></li>
             <?php endif ?>
             <li><a href="logout.php">Log out</a></li>
             <li> <?= $_SESSION['username']?> </li>

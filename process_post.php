@@ -21,9 +21,18 @@ $fish_id = filter_var($_POST['fish_id'], FILTER_SANITIZE_NUMBER_INT);
 
 $swimPosition = filter_var($_POST['position'], FILTER_SANITIZE_SPECIAL_CHARS);
 
+
+if(isset($_POST['test']))
+{
+    $image = null;
+    var_dump($image);
+}
+
+
+
 if($submit == "Update")
 {         
-    $query = "UPDATE fish SET commonName = :commonName, Aggression = :Aggression, Tankmates = :Tankmates, Size = :Size, pH = :pH, Water_Temperature = :Water_Temperature, swimPosition = :swimPosition WHERE fish_id = :fish_id ";
+    $query = "UPDATE fish SET commonName = :commonName, Aggression = :Aggression, Tankmates = :Tankmates, Size = :Size, pH = :pH, Water_Temperature = :Water_Temperature, swimPosition = :swimPosition, image =:image WHERE fish_id = :fish_id ";
 
 
     $statement = $db->prepare($query);
@@ -37,6 +46,7 @@ if($submit == "Update")
 
     $statement->bindValue('fish_id', $fish_id);
     $statement->bindValue('swimPosition', $swimPosition);
+    $statement->bindValue('image',$image);
 
     $statement->execute();
 
@@ -54,6 +64,6 @@ else
     
 }
 
-header("Location: homepage.php");
+    header("Location: homepage.php");
 
 ?>

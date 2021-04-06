@@ -52,11 +52,17 @@
     <?php $i = 0 ?>
             
             <?php foreach($fish as $curent): ?>
-
-      <legend>Edit Fish</legend>
+              <div class = "fish_post">   
       <p>
         <label for="fish_id">fish id: <?= $curent['fish_id'] ?></label>
         <input type="hidden" name="fish_id" id="fish_id" value="<?= $curent['fish_id'] ?>"/>
+      </p>
+      <p>
+        <?php if($curent['image']): ?>
+            <img src="data:image/gif;base64,<?php echo base64_encode($curent['image']);?>" />
+            <input type="checkbox" name="test">
+            <label for="test">Delete image</label>
+          <?php endif ?>
       </p>
       <p>
         <label for="commonName">Name</label>
@@ -111,6 +117,7 @@
         <input name="waterTemperature" id="waterTemperature" value="<?= $curent['Water_Temperature'] ?>"/>
       </p>
       <?php $i++ ?>
+              </div>
 
                 <?php if($i == 1) break; ?>
 

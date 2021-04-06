@@ -6,6 +6,16 @@
     $statement->execute(); // The query is now executed.
     $fish= $statement->fetchAll();
 
+
+    // Work on pagination later. 
+    $total = $db->query('SELECT COUNT(*) FROM fish')->fetchColumn();
+
+    $limit = 10;
+    
+    $pages = ceil($total/$limit);
+
+    //var_dump($pages);
+
     session_start();
    
 ?>
@@ -26,7 +36,11 @@
 <?php require 'menu.php' ?> 
 
 <div id="all_blogs">
-            <?php $i = 0 ?>
+            <?php $i = 0 ?><br>
+            <form class="search" action="search.php">
+                <input type="text" placeholder="Search fish" name="search">
+                <button type="submit">Search</button>
+            </form>
             
             <?php foreach(array_reverse($fish) as $curent): ?>
                 <div class = "fish_post">           

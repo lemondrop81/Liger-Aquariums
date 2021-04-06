@@ -22,10 +22,8 @@ $swimPosition = filter_var($_POST['position'], FILTER_SANITIZE_SPECIAL_CHARS);
 
 
 
-// Work on file upload
+//Uploads the file
 $image_upload_detected = isset($_FILES['image']) && ($_FILES['image']['error'] === 0);
-
-var_dump($image_upload_detected);
 
     if ($image_upload_detected) { 
         $image_filename       = $_FILES['image']['name'];
@@ -43,8 +41,9 @@ var_dump($image_upload_detected);
 
             imagecopyresized($thumb, $source, 0, 0, 0, 0, $maxWidth, $maxHeight, $width, $height);
 
-            $imageContent = addslashes(file_get_contents($temporary_image_path));
+            imagejpeg($thumb, "test.jpg", 75);
 
+            $imageContent = addslashes(file_get_contents("test.jpg"));
 
         }
     }
