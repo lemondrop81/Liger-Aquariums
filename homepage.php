@@ -77,7 +77,7 @@
                 
                 <?php $i++ ?>
 
-                <?php if($i == 5) break; ?>
+                <?php if($i == 20) break; ?>
 
             <?php endforeach ?>
          
