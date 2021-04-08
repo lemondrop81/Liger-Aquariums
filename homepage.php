@@ -46,6 +46,8 @@
                 <div class = "fish_post">           
 
                     <h2><?= $curent['commonName'] ?> </h2>
+                    <?= $urlFancy = $curent['commonName']?>
+                    <?= $urlFancy = str_replace(' ', '-', $urlFancy)?>
 
                     <?php if($curent['image']): ?>
 
@@ -55,7 +57,7 @@
                     
                     <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 'a'): ?>
                         <p>
-                            Date: <?=  $curent['date'] ?> <a href="edit.php?id=<?=$curent['fish_id'] ?>">edit </a> <br>
+                            Date: <?=  $curent['date'] ?> <a href="edit.php?id=<?=$curent['fish_id']?>&p=<?=$urlFancy?>">edit </a> <br>
                         </p>
                     <?php else: ?>
                             Date: <?= $curent['date'] ?>
@@ -70,7 +72,10 @@
                             Water temperature: <?= $curent['Water_Temperature'] ?> F <br>
                             Swim position: <?= $curent['swimPosition'] ?> <br>
 
-                            <a href="show.php?id=<?=$curent['fish_id'] ?>">Read More </a>
+                            <?= $urlFancy = $curent['commonName']?>
+                            <?= $urlFancy = str_replace(' ', '-', $urlFancy)?>
+
+                            <a href="show.php?id=<?=$curent['fish_id']?>&p=<?=$urlFancy?>">Read More </a>
 
                         </div>
                 </div>

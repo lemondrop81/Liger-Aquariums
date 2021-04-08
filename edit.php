@@ -6,10 +6,16 @@
     
     
     $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+    $urlName = filter_input(INPUT_GET, 'p', FILTER_SANITIZE_SPECIAL_CHARS);
 
-    $query = "SELECT * FROM fish WHERE fish_id =:id";
+    $title = str_replace('-', ' ', $urlName);
+
+    var_dump($title);
+
+    $query = "SELECT * FROM fish WHERE fish_id =:id AND commonName =:p";
     $statement = $db->prepare($query); // Returns a PDOStatement object.
     $statement -> bindValue(':id', $id);
+    $statement -> bindValue(':p', $title);
     $statement->execute(); // The query is now executed.
     $fish = $statement->fetchAll(); 
     

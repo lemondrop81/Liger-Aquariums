@@ -2,13 +2,20 @@
     require ('connect.php');
     
     session_start();
+
+    $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+    $urlName = filter_input(INPUT_GET, 'p', FILTER_SANITIZE_SPECIAL_CHARS);
+
+    $title = str_replace('-', ' ', $urlName);
     
-    $query = "SELECT * FROM fish WHERE fish_id=$_GET[id]";
+    $query = "SELECT * FROM fish WHERE fish_id =:id AND commonName =:p";
     $statement = $db->prepare($query); // Returns a PDOStatement object.
+    $statement -> bindValue(':id', $id);
+    $statement -> bindValue(':p', $title);
     $statement->execute(); // The query is now executed.
-    $fish= $statement->fetchAll(); 
+    $fish = $statement->fetchAll(); 
     
-    $query = "SELECT * FROM comments WHERE fish_id=$_GET[id]";
+    $query = "SELECT * FROM comments WHERE fish_id = $_GET[id]";
     $statement = $db->prepare($query); // Returns a PDOStatement object.
     $statement->execute(); // The query is now executed.
     $comments= $statement->fetchAll(); 
