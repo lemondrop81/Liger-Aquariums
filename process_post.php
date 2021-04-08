@@ -25,7 +25,6 @@ $swimPosition = filter_var($_POST['position'], FILTER_SANITIZE_SPECIAL_CHARS);
 if(isset($_POST['test']))
 {
     $image = null;
-    var_dump($image);
 }
 
 
@@ -59,11 +58,6 @@ if($submit == "Delete" && $_SESSION['role'] == "a")
     $statement = $db->prepare($query);
     $statement->execute();
 }
-else
-{
-    
-}
-
     header("Location: homepage.php");
 
 ?>

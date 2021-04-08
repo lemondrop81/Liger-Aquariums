@@ -19,13 +19,14 @@
         if($position == null)
         {
             $insert = "INSERT INTO users (username, password, role) 
-                    VALUES ('$username', '$password', 'c')";
+                    VALUES ('$username', '$password1', 'c')";
 
             $statement = $db->prepare($insert);
             $statement->execute();
 
             session_start();
             $_SESSION['username'] = $username;
+            $_SESSION['role'] = 'c';
         }
     } else 
     {
@@ -33,6 +34,8 @@
         echo nl2br("\nYou will be redirected back to the registration page in 10 seconds");
         header('Refresh: 10; URL=registration.php');
     }
+
+    header("Location: homepage.php");
 
 
 ?>

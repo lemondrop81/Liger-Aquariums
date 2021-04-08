@@ -42,8 +42,13 @@
                 
 
 
-
             <?php endforeach ?>
+            
+        <form action="newUser.php">
+            <p>
+                <input type="submit" name="command" value="Create new user" />
+            </p>
+        </form>
          
             
       
