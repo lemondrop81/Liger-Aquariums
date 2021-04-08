@@ -74,11 +74,7 @@ $fish= $statement->fetchAll();
             <h1><a href="homepage.php">Liger Aquariums - Categories</a></h1>
         </div> <!-- END div id="header" -->
         
-<ul id="menu">
-    <li><a href="homepage.php" class='active'>Home</a></li>
-    <li><a href="create.php" >New Post</a></li>
-    <li><a href="categories.php" >Categories</a></li>
-</ul> <!-- END div id="menu" -->
+        <?php require 'menu.php' ?> 
 <div id="all_blogs">
 
             <h2>The category of: </h2>

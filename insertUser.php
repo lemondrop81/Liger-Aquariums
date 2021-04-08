@@ -21,8 +21,10 @@ if(strcmp($password1, $password2) == 0)
 
         if($position == null)
         {
+            $encryptedPassword = password_hash($password1, PASSWORD_DEFAULT);
+
             $insert = "INSERT INTO users (username, password, role) 
-                    VALUES ('$username', '$password1', '$role')";
+                    VALUES ('$username', '$encryptedPassword', '$role')";
 
             $statement = $db->prepare($insert);
             $statement->execute();

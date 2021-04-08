@@ -38,7 +38,7 @@
 <div id="all_blogs">
             <?php $i = 0 ?><br>
             <form class="search" action="search.php">
-                <input type="text" placeholder="Search fish" name="search">
+                <input type="text" placeholder="Search common name" name="search">
                 <button type="submit">Search</button>
             </form>
             
