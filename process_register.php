@@ -18,9 +18,10 @@
 
         if($position == null)
         {
-            $insert = "INSERT INTO users (username, password, role) 
-                    VALUES ('$username', '$password1', 'c')";
+            $encryptedPassword = password_hash($password1, PASSWORD_DEFAULT);
 
+            $insert = "INSERT INTO users (username, password, role) 
+                    VALUES ('$username', '$encryptedPassword', 'c')";
             $statement = $db->prepare($insert);
             $statement->execute();
 
