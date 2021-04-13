@@ -51,7 +51,8 @@
 
                     <?php if($curent['image']): ?>
 
-                        <img src="data:image/gif;base64,<?php echo base64_encode($curent['image']);?>" /> <br>
+                        <!-- Work on the alt -->
+                        <img src="data:image/gif;base64,<?php echo base64_encode($curent['image'])?>"  alt="test" /> <br>
 
                     <?php endif ?>
                     
@@ -60,7 +61,9 @@
                             Date: <?=  $curent['date'] ?> <a href="edit.php?id=<?=$curent['fish_id']?>&p=<?=$urlFancy?>">edit </a> <br>
                         </p>
                     <?php else: ?>
+                        <p>
                             Date: <?= $curent['date'] ?>
+                        </p>
                     <?php endif ?>
 
                         <div class = "fish_content">

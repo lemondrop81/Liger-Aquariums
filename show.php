@@ -86,12 +86,11 @@
             <input type="submit" name="command" value="Add Comment" />
         </form> 
     <?php  endif ?> 
-    
 
         <?php foreach(array_reverse($comments) as $curent): ?> 
             <div id="comments">
                 <p><?= $curent['date'] ?> posted by <?= $curent['username'] ?></p>
-                <?php if($_SESSION['role'] == 'a'): ?> 
+                <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 'a'): ?> 
                     <a href="removeComment.php?id=<?=$curent['id'] ?>">Remove Comment </a>
                 <?php endif ?>
                 <p><?= $curent['comment'] ?></p>
