@@ -10,8 +10,6 @@
 
     $title = str_replace('-', ' ', $urlName);
 
-    var_dump($title);
-
     $query = "SELECT * FROM fish WHERE fish_id =:id AND commonName =:p";
     $statement = $db->prepare($query); // Returns a PDOStatement object.
     $statement -> bindValue(':id', $id);

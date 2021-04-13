@@ -46,8 +46,11 @@
                 <div class = "fish_post">           
 
                     <h2><?= $curent['commonName'] ?> </h2>
-                    <?= $urlFancy = $curent['commonName']?>
-                    <?= $urlFancy = str_replace(' ', '-', $urlFancy)?>
+
+                    <div class="noprint">
+                        <?= $urlFancy = $curent['commonName']?>
+                        <?= $urlFancy = str_replace(' ', '-', $urlFancy)?>
+                    </div>
 
                     <?php if($curent['image']): ?>
 
@@ -74,9 +77,6 @@
                             pH: <?= $curent['pH'] ?> <br>
                             Water temperature: <?= $curent['Water_Temperature'] ?> F <br>
                             Swim position: <?= $curent['swimPosition'] ?> <br>
-
-                            <?= $urlFancy = $curent['commonName']?>
-                            <?= $urlFancy = str_replace(' ', '-', $urlFancy)?>
 
                             <a href="show.php?id=<?=$curent['fish_id']?>&p=<?=$urlFancy?>">Read More </a>
 
