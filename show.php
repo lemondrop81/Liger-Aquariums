@@ -49,10 +49,14 @@
                     <img src="data:image/gif;base64,<?php echo base64_encode($curent['image']);?>" /> <br>
 
                 <?php endif ?>
+                <div class="noprint">
+                        <?= $urlFancy = $curent['commonName']?>
+                        <?= $urlFancy = str_replace(' ', '-', $urlFancy)?>
+                    </div>
 
                 <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 'a'): ?>
                     <p>
-                        Date: <?=  $curent['date'] ?> <a href="edit.php?id=<?=$curent['fish_id'] ?>">edit </a> <br>
+                    Date: <?=  $curent['date'] ?> <a href="edit.php?id=<?=$curent['fish_id']?>&p=<?=$urlFancy?>">edit </a> <br>
                     </p>
                 <?php else: ?>
                         Date: <?= $curent['date'] ?>
