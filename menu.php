@@ -4,6 +4,7 @@
             <li><a href="create.php" >New Post</a></li>
         <?php endif ?>
         <li><a href="categories.php" >Categories</a></li>
+        <li><a href="sort.php" >Sort</a></li>
     
         <?php if(isset($_SESSION['username'])): ?>
             <?php if($_SESSION['role'] == 'a'): ?>
