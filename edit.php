@@ -17,7 +17,7 @@
     $statement->execute(); // The query is now executed.
     $fish = $statement->fetchAll(); 
     
-    $query = "SELECT * FROM swimPosition";
+    $query = "SELECT * FROM swimposition";
     $statement = $db->prepare($query); // Returns a PDOStatement object.
     $statement->execute(); // The query is now executed.
     $position= $statement->fetchAll();
@@ -76,7 +76,7 @@
         <label> Swim Position</label>
         <select name="position" id="position">
             <?php foreach($position as $set): ?>
-              <?php if($set['position'] == $curent['swimPosition']): ?>
+              <?php if($set['position'] == $curent['swimposition']): ?>
                 <option selected ><?= $set['position'] ?></option>
               <?php else: ?>
                 <option><?= $set['position'] ?></option>

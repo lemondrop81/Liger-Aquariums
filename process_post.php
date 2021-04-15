@@ -31,7 +31,7 @@ if(isset($_POST['test']))
 
 if($submit == "Update")
 {         
-    $query = "UPDATE fish SET commonName = :commonName, Aggression = :Aggression, Tankmates = :Tankmates, Size = :Size, pH = :pH, Water_Temperature = :Water_Temperature, swimPosition = :swimPosition, image =:image WHERE fish_id = :fish_id ";
+    $query = "UPDATE fish SET commonName = :commonName, Aggression = :Aggression, Tankmates = :Tankmates, Size = :Size, pH = :pH, Water_Temperature = :Water_Temperature, swimPosition = :swimposition, image =:image WHERE fish_id = :fish_id ";
 
 
     $statement = $db->prepare($query);
@@ -58,6 +58,6 @@ if($submit == "Delete" && $_SESSION['role'] == "a")
     $statement = $db->prepare($query);
     $statement->execute();
 }
-    header("Location: index.php");
+ob_start(); Header('Location: index.php'); ob_end_flush();
 
 ?>

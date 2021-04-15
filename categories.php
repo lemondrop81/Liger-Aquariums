@@ -2,7 +2,7 @@
     require ('connect.php');
     session_start();
 
-    $query = "SELECT * FROM swimPosition";
+    $query = "SELECT * FROM swimposition";
     $statement = $db->prepare($query); // Returns a PDOStatement object.
     $statement->execute(); // The query is now executed.
     $position= $statement->fetchAll();
@@ -70,16 +70,6 @@
                         <?php foreach($tankMates as $set): ?>
                             <label> Select tank mates </label>
                             <option><?=  $set['tankMates'] ?></option>
-                        <?php endforeach ?>
-                    </select>
-                </p>
-                <p>
-                    <label> User</label>
-                    <select name="user" id="user">
-                        <option> Select User </option>
-                        <?php foreach($people as $set): ?>
-                            <label> Select User </label>
-                            <option><?=  $set['User_Id'] ?></option>
                         <?php endforeach ?>
                     </select>
                 </p>

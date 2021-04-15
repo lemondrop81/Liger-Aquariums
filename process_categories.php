@@ -22,14 +22,6 @@ if($Aggression != "Select Aggression")
     $columns[] = 'aggression';
 }
 
-$people = filter_var($_POST['user'], FILTER_SANITIZE_SPECIAL_CHARS);
-
-if($people != "Select User")
-{
-    $categoriesChosen[] = $people;
-    $columns[] = 'user_id';
-}
-
 $tankMates = filter_var($_POST['tankMates'], FILTER_SANITIZE_SPECIAL_CHARS);
 
 if($tankMates != "Select tank mates")

@@ -64,15 +64,15 @@ $image_upload_detected = isset($_FILES['image']) && ($_FILES['image']['error'] =
 
 if(strlen($commonName) == 0  || strlen($aggression) == 0 || strlen($tankmates) == 0 || strlen($size) == 0 || strlen($ph) == 0 ||  strlen($waterTemperature) == 0 || strlen($user_name) == 0 || strlen($swimPosition) == 0)
 {
-    header("Location: index.php");
+    ob_start(); Header('Location: index.php'); ob_end_flush();
 }
 else
 {
-    $query = "INSERT INTO fish (commonName, Aggression, Tankmates, Size, pH, Water_Temperature, user_name, swimPosition, image) 
+    $query = "INSERT INTO fish (commonName, Aggression, Tankmates, Size, pH, Water_Temperature, user_name, swimposition, image) 
     values ('$commonName', '$aggression', '$tankmates', '$size', '$ph', '$waterTemperature', '$user_name', '$swimPosition', '$imageContent')";
     $statement = $db->prepare($query);
-    $statement->execute();
+    $statement->execute();  
 
-    header("Location: index.php");
+    ob_start(); Header('Location: index.php'); ob_end_flush();
 }
 ?>

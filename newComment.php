@@ -6,12 +6,10 @@
     $id = filter_var($_POST['fish_id'], FILTER_SANITIZE_NUMBER_INT);
     $username = $_SESSION['username'];
 
-    var_dump($username);
-
 
     $query = "INSERT INTO comments (fish_id, comment, username) VALUES ('$id', '$comment', '$username')";
     $statement = $db->prepare($query); // Returns a PDOStatement object.
     $statement->execute(); // The query is now executed.
    
-    header("Location: index.php");
+    ob_start(); Header('Location: index.php'); ob_end_flush();
 ?>

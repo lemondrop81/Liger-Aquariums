@@ -4,7 +4,7 @@
 
   require ('connect.php');
 
-    $query = "SELECT * FROM swimPosition";
+    $query = "SELECT * FROM swimposition";
     $statement = $db->prepare($query); // Returns a PDOStatement object.
     $statement->execute(); // The query is now executed.
     $position= $statement->fetchAll();

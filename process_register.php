@@ -36,7 +36,7 @@
         header('Refresh: 10; URL=registration.php');
     }
 
-    header("Location: index.php");
+    ob_start(); Header('Location: index.php'); ob_end_flush();
 
 
 ?>
