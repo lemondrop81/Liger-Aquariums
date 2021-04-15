@@ -39,6 +39,6 @@ if($submit == "Delete")
     $statement->execute();
 }
 
-header("Location: homepage.php");
+header("Location: index.php");
 
 ?>

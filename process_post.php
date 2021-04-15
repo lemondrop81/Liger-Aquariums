@@ -58,6 +58,6 @@ if($submit == "Delete" && $_SESSION['role'] == "a")
     $statement = $db->prepare($query);
     $statement->execute();
 }
-    header("Location: homepage.php");
+    header("Location: index.php");
 
 ?>

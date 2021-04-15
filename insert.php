@@ -64,7 +64,7 @@ $image_upload_detected = isset($_FILES['image']) && ($_FILES['image']['error'] =
 
 if(strlen($commonName) == 0  || strlen($aggression) == 0 || strlen($tankmates) == 0 || strlen($size) == 0 || strlen($ph) == 0 ||  strlen($waterTemperature) == 0 || strlen($user_name) == 0 || strlen($swimPosition) == 0)
 {
-    header("Location: homepage.php");
+    header("Location: index.php");
 }
 else
 {
@@ -73,6 +73,6 @@ else
     $statement = $db->prepare($query);
     $statement->execute();
 
-    header("Location: homepage.php");
+    header("Location: index.php");
 }
 ?>

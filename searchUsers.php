@@ -28,7 +28,7 @@
 <body>
     <div id="wrapper">
         <div id="header">
-            <h1><a href="homepage.php">Liger Aquariums - Users</a></h1>
+            <h1><a href="index.php">Liger Aquariums - Users</a></h1>
         </div> <!-- END div id="header" -->
         
 <?php require 'menu.php' ?> 

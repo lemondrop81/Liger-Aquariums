@@ -1,8 +1,8 @@
 <?php
 
-define('DB_DSN','mysql:host=localhost;dbname=serverside');
-define('DB_USER','serveruser');
-define('DB_PASS','gorgonzola7!');    
+define('DB_DSN','mysql:host=localhost;dbname=id16609509_serverside');
+define('DB_USER','id16609509_admin');
+define('DB_PASS','~9mJG9F%2P@)69!V');    
 
 
 

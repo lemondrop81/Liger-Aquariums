@@ -1,5 +1,5 @@
 <ul id="menu">
-        <li><a href="homepage.php">Home</a></li>
+        <li><a href="index.php">Home</a></li>
         <?php if(isset($_SESSION['role'])): ?>
             <li><a href="create.php" >New Post</a></li>
         <?php endif ?>

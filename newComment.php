@@ -13,5 +13,5 @@
     $statement = $db->prepare($query); // Returns a PDOStatement object.
     $statement->execute(); // The query is now executed.
    
-    header("Location: homepage.php");
+    header("Location: index.php");
 ?>

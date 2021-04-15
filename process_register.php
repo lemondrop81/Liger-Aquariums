@@ -36,7 +36,7 @@
         header('Refresh: 10; URL=registration.php');
     }
 
-    header("Location: homepage.php");
+    header("Location: index.php");
 
 
 ?>
